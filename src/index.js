@@ -12,9 +12,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan("combined"));
 
 //Template engine
-app.engine(
-  "hbs",
-  handlebars.engine({
+app.engine("hbs", handlebars.engine({
     extname: "hbs",
   })
 );
@@ -26,6 +24,9 @@ app.get("/", (req, res) => {
 });
 app.get("/news", (req, res) => {
   res.render("news");
+});
+app.get("/search", (req, res) => {
+  res.render("search");
 });
 
 app.listen(port, () => {
