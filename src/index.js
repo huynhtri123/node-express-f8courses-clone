@@ -5,6 +5,10 @@ const path = require("path");
 const app = express();
 const port = 3000;
 
+//body parser (use middleware)
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
 //static file
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -27,6 +31,10 @@ app.get("/news", (req, res) => {
 });
 app.get("/search", (req, res) => {
   res.render("search");
+});
+app.post("/search", (req, res) => {
+  console.log(req.body);
+  res.send('');
 });
 
 app.listen(port, () => {

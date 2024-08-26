@@ -1,8 +1,16 @@
-<form class="mt-4 row g-3" method="GET" action="/news">
+<form class="mt-4 row g-3" method="POST" action="">
 
     <div class="col-auto">
         <label for="search-input" class="visually-hidden">Từ khoá</label>
         <input type="text" name="q" class="form-control" id="search-input" placeholder="Nhập từ khoá...">
+    </div>
+
+    <div class="col-auto">
+        <select name="gender">
+            <option value="">Chọn giới tính</option>
+            <option value="male">Nam</option>
+            <option value="female">Nữ</option>
+        </select>
     </div>
 
     <div class="col-auto">
