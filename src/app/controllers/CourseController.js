@@ -79,6 +79,24 @@ class CourseController {
         }
     }
 
+    // [POST] /courses/handle-trash-from-actions
+    handleTrashFormActions(req, res, next) {
+        switch(req.body.action) {
+            case 'force-delete':
+                Course.deleteMany({ _id: { $in: req.body.courseIds } })
+                    .then(() => res.redirect('back'))
+                    .catch(next);
+                break;
+            case 'restore':
+                Course.restore({ _id: { $in: req.body.courseIds } })
+                    .then(() => res.redirect('back'))
+                    .catch(next);
+                break;
+            default:
+                res.json({ message: 'Invalid action!' });
+        }
+    }
+
 }
 
 module.exports = new CourseController();
