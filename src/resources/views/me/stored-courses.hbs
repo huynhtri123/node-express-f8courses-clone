@@ -113,14 +113,6 @@
       renderCheckAllExecBtn();
     })
 
-    //check all submmit clicked 
-    checkAllSubmitBtn.on('click', function(e) {
-      var isSubmittable = !$(this).hasClass('disabled');
-      if (!isSubmittable){
-        e.preventDefault();
-      }
-    });
-
     //Re-render check all button
     function renderCheckAllExecBtn() {
       var checkedCount = $('input[name="courseIds[]"]:checked').length;
